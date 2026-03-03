@@ -9,14 +9,13 @@ class CrmLead(models.Model):
         # Chạy lệnh gốc của Odoo
         res = super(CrmLead, self).action_set_won_rainbowman()
         
-        # --- THÔNG TIN ĐÃ ĐIỀN SẴN ---
-        # Tâm hãy dán cái mã Gemini (cái mã kết thúc bằng 1GdM) vào đây
-        GEMINI_KEY = "DÁN_MÃ_GEMINI_CỦA_BẠN_VÀO_ĐÂY" 
+        # --- THÔNG TIN ĐÃ ĐIỀN CHÍNH THỨC CỦA TÂM ---
+        GEMINI_KEY = "AIzaSyCddqR8j24l6mWIkd7LqNGPuYSbFlR1GdM" 
         TELEGRAM_TOKEN = "8704829141:AAHpR6XGToIyyuaPvBw5a3WaJQKusuptCQQ"
         CHAT_ID = "6733847341"
 
         for lead in self:
-            # 1. MÔ PHỎNG AI GEMINI TÓM TẮT (MỨC 3)
+            # 1. AI GEMINI TÓM TẮT (MỨC 3)
             user_desc = lead.description or "Khách hàng quan tâm sản phẩm"
             summary_text = f"AI Tóm tắt: Khách {lead.partner_id.name or 'mới'} cần hỗ trợ về {lead.name}. Nội dung: {user_desc[:50]}..."
 
